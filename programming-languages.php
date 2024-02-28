@@ -53,6 +53,10 @@
 					wp_enqueue_style('programming-languages_styles', plugin_dir_url(__FILE__) . 'assets/css/style.css');
 					wp_enqueue_script('programming-languages_script', plugin_dir_url(__FILE__) . 'assets/js/main.js', ['jquery']);
 					wp_localize_script('programming-languages_script', 'programmingLanguages_ajax', ["ajaxurl" => admin_url('admin-ajax.php')]);
+
+                    // OwlCarrousel
+                    wp_enqueue_style('owlcarousel_styles', plugin_dir_url(__FILE__) . 'assets/owlcarousel/assets/owl.carousel.min.css');
+                    wp_enqueue_script('owlcarousel_script', plugin_dir_url(__FILE__) . 'assets/owlcarousel/owl.carousel.min.js', ['jquery']);
 				}
 
 				add_action('wp_enqueue_scripts', 'programmingLanguages_enqueue_assets');

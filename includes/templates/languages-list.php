@@ -10,7 +10,7 @@
 
 	if ($query->have_posts()) : ?>
 
-		<div id="languages" class="programming-languages-container">
+		<div id="languages" class="programming-languages-container owl-carousel">
 			<?php while ($query->have_posts()):
 				$query->the_post();
 				?>
@@ -18,7 +18,7 @@
 				<div class="programming-languages-card">
 					<?php
 					$image = get_field("programming_language_logo");
-					if (isset($image)): ?>
+					if (!empty($image)):; ?>
 					<figure class="programming-languages-card-img">
 						<img src="<?= $image['url'] ?>"
 							 alt="<?= $image['alt'] ?>">
@@ -27,7 +27,7 @@
 
 					<?php
 						$title = get_field("programming_language_name");
-						if (isset($title)): ?>
+						if (!empty($title)): ?>
 					<h3 class="programming-languages-card-title">
 						<?= $title ?>
 					</h3>
@@ -35,7 +35,7 @@
 
 					<?php
 						$description = get_field("programming_language_description");
-						if (isset($description)): ?>
+						if (!empty($description)): ?>
 					<div class="programming-languages-card-description">
 						<p><?= $description ?></p>
 					</div>
@@ -43,7 +43,7 @@
 
 					<?php
 						$website = get_field("programming_language_website");
-						if (isset($website)): ?>
+						if (!empty($website)): ?>
 					<a class="programming-languages-card-button"
 					   href="<?= $website ?>">
 						Go to website

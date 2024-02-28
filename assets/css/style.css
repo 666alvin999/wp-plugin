@@ -12,20 +12,23 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 1rem;
-    margin-bottom: 1.5rem;
     flex-flow: row wrap;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .programming-languages-card
 {
     flex: 1 1 calc(33.33% - 16px);
     max-width: 500px;
+    height: 100%;
     background-color: #ffffff;
     -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
     margin: 0;
     border-radius: 8px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    outline: 1px solid rgba(0, 0, 0, 0.1);
+    outline-offset: -2px;
     color: #000;
     padding: 1.5rem;
     display: flex;
@@ -98,3 +101,6 @@
     color: white;
     background-color: rgba(0, 0, 0, 0.8);
 }
+
+.owl-carousel .owl-stage{display: flex;}
+.owl-carousel .owl-stage-outer{padding: 0 1px}
