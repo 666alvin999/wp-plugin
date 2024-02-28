@@ -38,8 +38,7 @@ class ProgrammingLanguagesAdmin {
             'hierarchical' => false,
             'public' => true,
             'has_archive' => true,
-            'rewrite' => array('slug' => 'programming-language'),
-
+            'rewrite' => array('slug' => 'programminglanguages'),
         );
 
         register_post_type(self::POST_TYPE, $args);

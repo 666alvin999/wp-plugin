@@ -47,7 +47,7 @@ if (!class_exists('ProgrammingLanguages') && class_exists('ACF')) :
          */
         function initialize() {
             //i18n
-            load_plugin_textdomain('programming-languages', false, dirname(plugin_basename(__FILE__)) . '/languages/');
+            load_plugin_textdomain('programminglanguages', false, dirname(plugin_basename(__FILE__)) . '/languages/');
 
             function programmingLanguages_enqueue_assets() {
                 wp_enqueue_style('programming-languages_styles', plugin_dir_url(__FILE__) . 'assets/css/style.css');
@@ -85,7 +85,7 @@ if (!class_exists('ProgrammingLanguages') && class_exists('ACF')) :
         global $post;
 
         /* Checks for single template by post type */
-        if ($post->post_type == 'programming-languages') {
+        if ($post->post_type == 'programminglanguages') {
             if (file_exists(plugin_dir_path(__FILE__) . '/includes/templates/single-programming-languages.php')) {
                 return plugin_dir_path(__FILE__) . '/includes/templates/single-programming-languages.php';
             }
