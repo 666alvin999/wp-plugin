@@ -16,21 +16,39 @@
 				?>
 
 				<div class="programming-languages-card">
+					<?php
+					$image = get_field("programming_language_logo");
+					if (isset($image)): ?>
 					<figure class="programming-languages-card-img">
-                        <img src="<?= get_field("programming_language_logo")['url'] ?>" alt="<?= get_field("programming_language_logo")['alt'] ?>">
-                    </figure>
+						<img src="<?= $image['url'] ?>"
+							 alt="<?= $image['alt'] ?>">
+					</figure>
+					<?php endif; ?>
 
+					<?php
+						$title = get_field("programming_language_name");
+						if (isset($title)): ?>
 					<h3 class="programming-languages-card-title">
-						<?= get_field("programming_language_name") ?>
+						<?= $title ?>
 					</h3>
+					<?php endif; ?>
 
+					<?php
+						$description = get_field("programming_language_description");
+						if (isset($description)): ?>
 					<div class="programming-languages-card-description">
-						<p><?= get_field("programming_language_description") ?></p>
+						<p><?= $description ?></p>
 					</div>
+					<?php endif; ?>
 
-                    <a class="programming-languages-card-button" href="<?= get_field("programming_language_website") ?>">
-                        Go to website
-                    </a>
+					<?php
+						$website = get_field("programming_language_website");
+						if (isset($website)): ?>
+					<a class="programming-languages-card-button"
+					   href="<?= $website ?>">
+						Go to website
+					</a>
+					<?php endif; ?>
 				</div>
 
 			<?php endwhile; ?>
