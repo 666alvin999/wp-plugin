@@ -72,7 +72,17 @@ if (!class_exists('ProgrammingLanguages') && class_exists('ACF')) :
             } else {
                 // Add plugin shortcode
                 function languages_list() {
-                    include 'includes/templates/languages-list.php';
+                    $args = array(
+                        'post_type' => 'programminglanguages',
+                        'post_status' => 'publish'
+                    );
+
+                    $string = '';
+                    $query = new WP_Query($args);
+
+                    if ($query->have_posts()) {
+                        include 'includes/templates/languages-list.php';
+                    }
                 }
 
                 add_shortcode('programmingLanguagesList', 'languages_list');
