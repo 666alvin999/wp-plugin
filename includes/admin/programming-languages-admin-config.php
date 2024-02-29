@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) {
 class ProgrammingLanguagesAdmin {
 
     const PL_POST_TYPE = "programminglanguages";
-    const CAROUSEL_POST_TYPE = "programminglanguages";
+    const CAROUSEL_POST_TYPE = "carousel";
 
     public function __construct() {
         add_action('init', [$this, "initCpt"]);

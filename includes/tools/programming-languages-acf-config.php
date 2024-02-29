@@ -96,7 +96,7 @@
 							array(
 								'param' => 'post_type',
 								'operator' => '==',
-								'value' => 'programminglanguages',
+								'value' => 'carousel',
 							),
 						),
 					),
