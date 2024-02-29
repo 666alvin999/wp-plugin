@@ -11,10 +11,11 @@ class ProgrammingLanguagesAdmin {
 
     public function __construct() {
         add_action('init', [$this, "initCpt"]);
+        add_action('init', [$this, "initCptOption"]);
     }
 
     public function initCpt() {
-        $labels = array(
+        $labels = [
             'name' => __('Programming Languages', 'Post Type General Name'),
             'singular_name' => __('Programming Language', 'Post Type Singular Name'),
             'menu_name' => __('Programming Language'),
@@ -27,9 +28,9 @@ class ProgrammingLanguagesAdmin {
             'search_items' => __('Search for a Language'),
             'not_found' => __('Language not found'),
             'not_found_in_trash' => __('Language not found in trash')
-        );
+        ];
 
-        $args = array(
+        $args = [
             'label' => __('Programming Languages'),
             'description' => __('Visualize and Create Programming Languages'),
             'labels' => $labels,
@@ -39,40 +40,23 @@ class ProgrammingLanguagesAdmin {
             'hierarchical' => false,
             'public' => true,
             'has_archive' => true,
-            'rewrite' => array('slug' => 'programminglanguages'),
-        );
+            'rewrite' => array('slug' => 'programming-languages'),
+        ];
 
         register_post_type(self::PL_POST_TYPE, $args);
+    }
 
-	    $labels = array(
-		    'name' => __('PL Carousel', 'Post Type General Name'),
-		    'singular_name' => __('PL Carousel', 'Post Type Singular Name'),
-		    'menu_name' => __('PL Carousel'),
-		    'all_items' => __('All Carousel'),
-		    'view_item' => __('View Carousel'),
-		    'add_new_item' => __('Add a new Carousel'),
-		    'add_new' => __('Add'),
-		    'edit_item' => __('Edit Carousel'),
-		    'update_item' => __('Update Carousel'),
-		    'search_items' => __('Search for a Carousel'),
-		    'not_found' => __('Carousel not found'),
-		    'not_found_in_trash' => __('Carousel not found in trash')
-	    );
+    public function initCptOption() {
+        if( function_exists('acf_add_options_page') ) {
 
-	    $args = array(
-		    'label' => __('Carousel Turn Off-On'),
-		    'description' => __('Turn your programming languages in carousel'),
-		    'labels' => $labels,
-		    'menu_icon' => 'dashicons-html',
-		    'supports' => array('title', 'editor', 'thumbnail', 'true_false', 'author'),
-		    'show_in_rest' => true,
-		    'hierarchical' => false,
-		    'public' => true,
-		    'has_archive' => true,
-		    'rewrite' => array('slug' => 'programminglanguages'),
-	    );
-
-	    register_post_type(self::CAROUSEL_POST_TYPE, $args);
+            acf_add_options_page(array(
+                'page_title'    => 'Programming Languages',
+                'menu_title'    => 'Programming Language',
+                'menu_slug'     => 'pl-options-page',
+                'capability'    => 'edit_posts',
+                'redirect'      => false
+            ));
+        }
     }
 
 }

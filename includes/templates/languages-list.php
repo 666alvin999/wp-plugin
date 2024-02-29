@@ -8,9 +8,12 @@
 	global $query;
 	$query = new WP_Query($args);
 
+    // Global Settings
+    $optionCarousel = get_field('options_programming_languagues_carousel', 'option');
+
 	if ($query->have_posts()) : ?>
 
-		<div id="languages" class="programming-languages-container <?php owl-carousel ?>">
+		<div id="languages" class="programming-languages-container <?php if($optionCarousel == 'Carousel'): ?>owl-carousel<?php endif; ?>">
 			<?php while ($query->have_posts()):
 				$query->the_post();
 				?>
