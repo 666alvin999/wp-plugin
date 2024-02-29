@@ -6,7 +6,8 @@ if (!defined('ABSPATH')) {
 
 class ProgrammingLanguagesAdmin {
 
-    const POST_TYPE = "programminglanguages";
+    const PL_POST_TYPE = "programminglanguages";
+    const CAROUSEL_POST_TYPE = "programminglanguages";
 
     public function __construct() {
         add_action('init', [$this, "initCpt"]);
@@ -41,7 +42,7 @@ class ProgrammingLanguagesAdmin {
             'rewrite' => array('slug' => 'programminglanguages'),
         );
 
-        register_post_type(self::POST_TYPE, $args);
+        register_post_type(self::PL_POST_TYPE, $args);
 
 	    $labels = array(
 		    'name' => __('PL Carousel', 'Post Type General Name'),
@@ -70,6 +71,8 @@ class ProgrammingLanguagesAdmin {
 		    'has_archive' => true,
 		    'rewrite' => array('slug' => 'programminglanguages'),
 	    );
+
+	    register_post_type(self::CAROUSEL_POST_TYPE, $args);
     }
 
 }
