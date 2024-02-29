@@ -10,7 +10,7 @@
 
 	if ($query->have_posts()) : ?>
 
-		<div id="languages" class="programming-languages-container owl-carousel">
+		<div id="languages" class="programming-languages-container <?php owl-carousel ?>">
 			<?php while ($query->have_posts()):
 				$query->the_post();
 				?>
